@@ -118,8 +118,8 @@ export const Menu = styled.nav`
   flex-wrap: wrap;
   align-content: center;
   text-align: center;
-  overflow-x: scroll;
   width: 100%;
+  overflow: hidden;
   /* background-color: var(--colorNavBackground); */
   position: absolute;
   height: calc(100vh - var(--navHeight));
@@ -143,6 +143,7 @@ export const Menu = styled.nav`
     width: auto;
     height: auto;
     transform: none;
+    overflow-y: scroll;
 
     a {
       width: auto;
