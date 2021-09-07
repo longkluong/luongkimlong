@@ -4,82 +4,71 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
-import { Tag, Category } from "../components/Label"
 // import { Children } from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import kebabCase from "lodash.kebabcase"
+import PostHeader from "../components/PostHeader"
+import { Wrapper } from "../components/Layout.style"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
+  const image = post.frontmatter.image.childImageSharp.gatsbyImageData
+  const aspectRatio = post.frontmatter.image.childImageSharp.fluid.aspectRatio
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
+    <>
+      <Layout
+        location={location}
+        title={siteTitle}
+        image={image}
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        {/* <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        /> */}
-        <div>
-          <span>
-            Category:{" "}
-            <Category to={`/category/${kebabCase(post.frontmatter.category)}`}>
-              {post.frontmatter.category}
-            </Category>
-          </span>
-          <span>
-            Tags:{" "}
-            {post.frontmatter.tags.map(tag => {
-              return <Tag key={tag} to={`/tag/${kebabCase(tag)}`}>{tag}</Tag>
-            })}
-          </span>
+        <Seo
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt}
+        />
+        <Wrapper>
+        {/* <article
+          className="blog-post"
+          itemScope
+          itemType="http://schema.org/Article"
+        > */}
+        <PostHeader post={post} image={image} aspectRatio={aspectRatio} />
           <MDXRenderer>{post.body}</MDXRenderer>
-        </div>
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </Layout>
+          <hr />
+          <footer>
+            <Bio />
+          </footer>
+        {/* </article> */}
+        </Wrapper>
+        <nav className="blog-post-nav">
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </Layout>
+    </>
   )
 }
 
@@ -106,6 +95,14 @@ export const pageQuery = graphql`
         tags
         date(formatString: "MMMM DD, YYYY")
         description
+        image {
+          childImageSharp {
+            gatsbyImageData
+            fluid {
+              aspectRatio
+            }
+          }
+        }
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
@@ -114,6 +111,14 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        image {
+          childImageSharp {
+            gatsbyImageData
+            fluid {
+              aspectRatio
+            }
+          }
+        }
       }
     }
     next: mdx(id: { eq: $nextPostId }) {
@@ -122,6 +127,14 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        image {
+          childImageSharp {
+            gatsbyImageData
+            fluid {
+              aspectRatio
+            }
+          }
+        }
       }
     }
   }

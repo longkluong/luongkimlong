@@ -12,3 +12,6 @@ import "prismjs/themes/prism.css"
 //Google fonts
 import "@fontsource/nunito"
 import "@fontsource/lora"
+import "@fontsource/rubik"
+import "@fontsource/eb-garamond/"
+import "@fontsource/eb-garamond/variable-italic.css"

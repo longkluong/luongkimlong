@@ -1,42 +1,41 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import CardLoop from "../components/CardLoop"
 import BlogCard from "../components/BlogCard"
+import Seo from "../components/Seo"
+import Pagination from "../components/Pagination"
+import ArchiveSection from "../components/ArchiveSection"
 
-const BlogPostList = ({ data, pageContext }) => {
+const BlogPostList = ({ data, pageContext, location }) => {
   const { allMdx } = data
   return (
-    <Layout>
-      {allMdx.edges.map(({ node }) => {
-        return (
-          <BlogCard 
-            slug={node.fields.slug}
-            image={node.frontmatter.image.childImageSharp.gatsbyImageData}
-            category={node.frontmatter.category}
-            title={node.frontmatter.title}
-            author={node.frontmatter.author}
-            tags={node.frontmatter.tags}
-            excerpt={node.excerpt}
-            date={node.frontmatter.date}
-          />
-        )
-      })}
-      <ul>
-        {Array.from({ length: pageContext.numPages }).map((item, i) => {
-          const index = i + 1
-          const link = index === 1 ? "/" : `/page/${index}`
-          return (
-            <li key={index}>
-              {pageContext.currentPage === index ? (
-                <span>{index}</span>
-              ) : (
-                <Link to={link}>{index}</Link>
-              )}
-            </li>
-          )
-        })}
-      </ul>
-    </Layout>
+    <>
+      <Layout location={location}>
+        <Seo
+          title="Welcome to the blog of Lương Kim Long"
+        />
+        <ArchiveSection title="Latest Posts" />
+        <CardLoop>
+          {allMdx.edges.map(({ node }) => {
+            return (
+              <BlogCard
+                id={node.fields.slug}
+                slug={node.fields.slug}
+                image={node.frontmatter.image.childImageSharp.gatsbyImageData}
+                category={node.frontmatter.category}
+                title={node.frontmatter.title}
+                author={node.frontmatter.author}
+                tags={node.frontmatter.tags}
+                excerpt={node.excerpt}
+                date={node.frontmatter.date}
+              />
+            )
+          })}
+        </CardLoop>
+        <Pagination currentPage={pageContext.currentPage} numPages={pageContext.numPages} />
+      </Layout>
+    </>
   )
 }
 export default BlogPostList

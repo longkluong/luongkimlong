@@ -1,5 +1,28 @@
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import breakpoint from "../breakpoint"
+
+export const LinkWrapper = styled.div`
+  /* flex: 1 1 calc(33.33% - calc(2 * var(--itemMargin))); */
+  flex: 1 0 calc(100% - 2 * var(--itemMargin));
+  margin: var(--itemMargin);
+
+  ${breakpoint.md} {
+    flex: 1 0 calc(50% - 2 * var(--itemMargin));
+  }
+
+  ${breakpoint.lg} {
+    &:first-of-type, &:nth-child(2){
+      flex: 1 0 calc(50% - 2 * var(--itemMargin));
+    }
+    flex: 1 0 calc(33.33% - 2 * var(--itemMargin));
+  }
+
+  .feature-image{
+    height: 0;
+    padding-top: 75%;
+  }
+`
 
 export const Title = styled.h2`
   font-weight: 500;
@@ -28,11 +51,12 @@ export const Content = styled.div`
     margin-bottom: 0;
   }
 
-  &:after {
+  //The Balance liked border
+  /* &:after {
     border: 3px solid yellow;
     content: "";
-    margin: 0 auto; /* this centers the line to the full width specified */
-    position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    margin: 0 auto; 
+    position: absolute;
     top: -10px;
     left: 5px;
     right: 0;
@@ -40,7 +64,7 @@ export const Content = styled.div`
     z-index: -1;
     width: 100%;
     height: 100%;
-  }
+  } */
 `
 
 export const Wrapper = styled.div`
@@ -57,9 +81,12 @@ export const Wrapper = styled.div`
   }
 `
 export const FeaturedImage = styled(GatsbyImage)`
-  width: 100%;
+  /* width: 100%; */
   position: relative;
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `
 
 export const Tag = styled.div`
@@ -72,19 +99,18 @@ export const Tag = styled.div`
     margin-right: 5px;
     margin-bottom: 5px;
   }
-  a {
+  /* a {
     font-size: 0.8rem;
     font-family: monospace;
     padding: 10px;
     border-radius: 5px;
-    /* background-color: blue; */
     font-weight: 500;
     color: var(--primary);
   }
 
   a:hover{
     background-color: rgb(255, 255, 100, 0.8);
-  }
+  } */
 
   /* &:before {
     content: "Tags: ";
@@ -93,17 +119,12 @@ export const Tag = styled.div`
 `
 export const Category = styled.div`
   position: relative;
-  margin-top: -35px;
+  margin-top: -42px;
   text-align: center;
 
-  a {
-    font-size: 1.2rem;
-    font-family: monospace;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: red;
-    font-weight: 500;
+  a{
     color: white;
+    text-shadow: 0.1em 0.1em 0.05em black;
   }
 `
 export const Author = styled.div`
@@ -119,5 +140,6 @@ export const Author = styled.div`
 `
 
 export const Date = styled.div`
-  float: right;
+  /* float: right; */
+  /* text-align: center; */
 `

@@ -1,52 +1,49 @@
-import React from 'react'
-import kebabCase from 'lodash.kebabcase'
-import { graphql, Link } from 'gatsby'
+import React from "react"
+import kebabCase from "lodash.kebabcase"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
-import { Tag } from "../components/Label"
-import BlogCard from '../components/BlogCard'
+import BlogCard from "../components/BlogCard"
+import CardLoop from "../components/CardLoop"
+import Pagination from "../components/Pagination"
+import Seo from "../components/Seo"
+import ArchiveSection from "../components/ArchiveSection"
 
-const BlogTag = ({ data, pageContext }) => {
+const BlogTag = ({ data, pageContext, location }) => {
   const { allMdx } = data
   return (
-    <Layout>
-      <h1>All Tags:</h1>
-      {pageContext.allTags.map((tag) => (
-        <Tag key={tag} to={`/tag/${kebabCase(tag)}`}>{tag}</Tag>
-      ))}
+    <Layout location={location}>
+      <Seo title={pageContext.tag} />
+      <ArchiveSection
+        title={kebabCase(pageContext.tag)}
+        seeMore={pageContext.allTags.map(tag => (
+          <Link key={tag} to={`/tag/${kebabCase(tag)}`} className="tag">
+            {tag}
+          </Link>
+        ))}
+        numPosts={pageContext.numPosts} 
+      />
       <br />
-      {allMdx.edges.map(({ node }) => {
-        return (
-          <BlogCard 
-            slug={node.fields.slug}
-            image={node.frontmatter.image.childImageSharp.gatsbyImageData}
-            category={node.frontmatter.category}
-            title={node.frontmatter.title}
-            author={node.frontmatter.author}
-            tags={node.frontmatter.tags}
-            excerpt={node.excerpt}
-            date={node.frontmatter.date}
-          />
-        )
-      })}
-      <ul>
-        {Array.from({ length: pageContext.numPages }).map((item, i) => {
-          const index = i + 1
-          const tags = kebabCase(pageContext.tags)
-          const link =
-            index === 1
-              ? `/tag/${tags}`
-              : `/tag/${tags}/page/${index}`
+      <CardLoop>
+        {allMdx.edges.map(({ node }) => {
           return (
-            <li key={index}>
-              {pageContext.currentPage === index ? (
-                <span>{index}</span>
-              ) : (
-                <Link to={link}>{index}</Link>
-              )}
-            </li>
+            <BlogCard
+              slug={node.fields.slug}
+              image={node.frontmatter.image.childImageSharp.gatsbyImageData}
+              category={node.frontmatter.category}
+              title={node.frontmatter.title}
+              author={node.frontmatter.author}
+              tags={node.frontmatter.tags}
+              excerpt={node.excerpt}
+              date={node.frontmatter.date}
+            />
           )
         })}
-      </ul>
+      </CardLoop>
+      <Pagination
+        currentPage={pageContext.currentPage}
+        numPages={pageContext.numPages}
+        contextPage={`tag/${kebabCase(pageContext.tag)}`}
+      />
     </Layout>
   )
 }

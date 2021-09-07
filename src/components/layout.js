@@ -1,19 +1,18 @@
 import * as React from "react"
 import Footer from "./Footer"
-import { Content, Wrapper } from "./Layout.style"
+import { Spacer } from "./Layout.style"
 import GlobalStyle from "./GlobalStyle"
 import Navbar from "./Navbar"
+// import PageBackground from "../components/PageBackground"
 
-const Layout = ({ children }) => {
+const Layout = ({ location, image, className, children }) => {
   return (
     <>
       <GlobalStyle />
-      <Navbar></Navbar>
-      <Wrapper>
-        <Content>
-          <main>{children}</main>
-        </Content>
-      </Wrapper>
+      {/* <PageBackground image={image} className={className} /> */}
+      <Navbar />
+      <Spacer />
+      {children}
       <Footer></Footer>
     </>
   )

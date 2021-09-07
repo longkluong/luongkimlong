@@ -58,7 +58,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 
   // Create Blog-list page
-  const postsPerPage = 2
+  const postsPerPage = 3
 
   // Calculate number of pages needed
   const numPages = Math.ceil(nonFeaturedPosts.length / postsPerPage)
@@ -116,6 +116,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           skip: i * postsPerPage,
           currentPage: i + 1,
           numPages: Math.ceil(countCategories[cat] / postsPerPage),
+          numPosts: countCategories[cat],
         },
       })
     })
@@ -136,6 +137,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           skip: i * postsPerPage,
           currentPage: i + 1,
           numPages: Math.ceil(countTags[tag] / postsPerPage),
+          numPosts: countTags[tag],
         },
       })
     })
