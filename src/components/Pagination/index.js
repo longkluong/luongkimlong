@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import { PaginationWrapper, PaginationItem } from "./Pagination.style"
 
@@ -20,7 +21,7 @@ const Pagination = ({ numPages, currentPage, contextPage }) => {
             {currentPage === index ? (
               <span>{index}</span>
             ) : (
-              <a href={link}>{index}</a>
+              <Link to={link}>{index}</Link>
             )}
           </PaginationItem>
         )
