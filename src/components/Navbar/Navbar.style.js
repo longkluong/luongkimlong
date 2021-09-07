@@ -125,8 +125,12 @@ export const Menu = styled.nav`
   height: calc(100vh - var(--navHeight));
   top: var(--navHeight);
   left: 0;
+  transform: translateX(100%);
 
-  transform: ${({ nav }) => (nav ? "translateX(0)" : "translateX(100%)")};
+  ${({nav}) => nav && `
+    transform: translateX(0);
+    overflow-y: auto;
+  `}
   transition: transform 200ms linear;
 
   a {
@@ -143,7 +147,6 @@ export const Menu = styled.nav`
     width: auto;
     height: auto;
     transform: none;
-    overflow-y: scroll;
 
     a {
       width: auto;
