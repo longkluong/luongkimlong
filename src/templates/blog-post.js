@@ -12,7 +12,7 @@ import { Wrapper } from "../components/Layout.style"
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
   const image = post.frontmatter.image.childImageSharp.gatsbyImageData
-  const aspectRatio = post.frontmatter.image.childImageSharp.fluid.aspectRatio
+  const aspectRatio = post.frontmatter.image.childImageSharp.resize.aspectRatio
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
@@ -98,7 +98,7 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             gatsbyImageData
-            fluid {
+            resize {
               aspectRatio
             }
           }
@@ -114,7 +114,7 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             gatsbyImageData
-            fluid {
+            resize {
               aspectRatio
             }
           }
@@ -130,7 +130,7 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             gatsbyImageData
-            fluid {
+            resize {
               aspectRatio
             }
           }

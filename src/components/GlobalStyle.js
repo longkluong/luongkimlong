@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import breakpoint from "./breakpoint"
+import breakpoint from "./utils/breakpoint"
 
 const GlobalStyle = createGlobalStyle`
     :root{
@@ -190,6 +190,7 @@ const GlobalStyle = createGlobalStyle`
     text-transform: uppercase;
     letter-spacing: 0.1em;
     z-index: 1;
+    pointer-events: auto;
 
     &:hover {
       transform: translateY(-0.2rem);
@@ -208,6 +209,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .tag {
     display: inline-block;
+    pointer-events: auto;
     white-space: nowrap;
     padding: 0.5em 1em;
     border: 1px solid gray;

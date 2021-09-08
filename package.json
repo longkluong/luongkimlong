@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "luong-kim-long-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A personal blog of Luong Kim Long",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Long Luong <long.k.luong@gmail.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -49,15 +49,15 @@
   "devDependencies": {
     "prettier": "2.3.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://www.luongkimlong.com",
   "keywords": [
-    "gatsby"
+    "blog"
   ],
   "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/longkluong/luongkimlong.git"
   },
   "scripts": {
     "build": "gatsby build",

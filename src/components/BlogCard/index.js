@@ -9,7 +9,7 @@ import {
   Title,
   // Author,
   Date,
-  LinkWrapper,
+  LinkOverlay,
 } from "./BlogCard.style"
 import { Link } from "gatsby"
 
@@ -25,36 +25,35 @@ const BlogCard = ({
 }) => {
   const categoryUrl = `/category/${kebabCase(category)}`
   return (
-    <LinkWrapper>
-      <Link to={slug}>
-        <Wrapper key={slug}>
-          <FeaturedImage className="feature-image" image={image} alt={title} />
-          <Content>
-            <Category>
-              <Link to={categoryUrl} className="category">{category}</Link>
-            </Category>
-            <Title>{title}</Title>
-            <p>{excerpt}</p>
-            <Tag>
-              <ul>
-                {tags.map(tag => {
-                  const tagUrl = `/tag/${kebabCase(tag)}`
-                  return (
-                    <li>
-                      <Link key={tag} to={tagUrl} className="tag">
-                        {tag}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </Tag>
-            {/* <Author>{author}</Author> */}
-            <Date>{date}</Date>
-          </Content>
-        </Wrapper>
-      </Link>
-    </LinkWrapper>
+      <Wrapper key={slug}>
+      <LinkOverlay to={slug}></LinkOverlay>
+        <FeaturedImage className="feature-image" image={image} alt={title} />
+        <Content>
+          <Category>
+            <Link to={categoryUrl} className="category">
+              {category}
+            </Link>
+          </Category>
+          <Title>{title}</Title>
+          <p>{excerpt}</p>
+          <Tag>
+            <ul>
+              {tags.map(tag => {
+                const tagUrl = `/tag/${kebabCase(tag)}`
+                return (
+                  <li key={tag}>
+                    <Link to={tagUrl} className="tag">
+                      {tag}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </Tag>
+          {/* <Author>{author}</Author> */}
+          <Date>{date}</Date>
+        </Content>
+      </Wrapper>
   )
 }
 

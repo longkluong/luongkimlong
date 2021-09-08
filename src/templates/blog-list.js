@@ -12,14 +12,13 @@ const BlogPostList = ({ data, pageContext, location }) => {
   return (
     <>
       <Layout location={location}>
-        <Seo
-          title="Welcome to the blog of Lương Kim Long"
-        />
+        <Seo title="Welcome to the blog of Lương Kim Long" />
         <ArchiveSection title="Latest Posts" />
         <CardLoop>
           {allMdx.edges.map(({ node }) => {
             return (
               <BlogCard
+                key={node.fields.slug}
                 id={node.fields.slug}
                 slug={node.fields.slug}
                 image={node.frontmatter.image.childImageSharp.gatsbyImageData}
@@ -33,7 +32,10 @@ const BlogPostList = ({ data, pageContext, location }) => {
             )
           })}
         </CardLoop>
-        <Pagination currentPage={pageContext.currentPage} numPages={pageContext.numPages} />
+        <Pagination
+          currentPage={pageContext.currentPage}
+          numPages={pageContext.numPages}
+        />
       </Layout>
     </>
   )
