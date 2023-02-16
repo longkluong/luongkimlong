@@ -1,0 +1,2 @@
+(self.webpackChunkluong_kim_long_blog=self.webpackChunkluong_kim_long_blog||[]).push([[306],{1930:function(e,n,t){"use strict";var u=t(5318);n.__esModule=!0,n.default=void 0;var l=u(t(5354)),o=u(t(7294)),r=function(e){function n(){return e.apply(this,arguments)||this}return(0,l.default)(n,e),n.prototype.render=function(){return o.default.createElement(o.default.Fragment,null)},n}(o.default.Component);n.default=r}}]);
+//# sourceMappingURL=component---cache-caches-gatsby-plugin-offline-app-shell-js-c68d1bbec72415f2a38d.js.map

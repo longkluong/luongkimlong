@@ -4,7 +4,7 @@ const preferDefault = m => (m && m.default) || m
 
 
 exports.components = {
-  "component---cache-dev-404-page-js": preferDefault(require("/Users/longluong/Web/luongkimlong/.cache/dev-404-page.js")),
+  "component---cache-caches-gatsby-plugin-offline-app-shell-js": preferDefault(require("/Users/longluong/Web/luongkimlong/.cache/caches/gatsby-plugin-offline/app-shell.js")),
   "component---src-pages-404-js": preferDefault(require("/Users/longluong/Web/luongkimlong/src/pages/404.js")),
   "component---src-pages-using-typescript-tsx": preferDefault(require("/Users/longluong/Web/luongkimlong/src/pages/using-typescript.tsx")),
   "component---src-templates-blog-category-js": preferDefault(require("/Users/longluong/Web/luongkimlong/src/templates/blog-category.js")),
