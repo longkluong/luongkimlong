@@ -9,8 +9,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          filter: { frontmatter: { draft: { eq: false } } }
+          sort: {frontmatter: {date: DESC}}
+          filter: {frontmatter: {draft: {eq: false}}}
         ) {
           edges {
             node {
@@ -19,6 +19,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 featured
                 category
                 tags
+              }
+              internal {
+                contentFilePath
               }
               fields {
                 slug
@@ -154,7 +157,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
       createPage({
         path: post.node.fields.slug,
-        component: blogPostTemplate,
+        component: `${blogPostTemplate}?__contentFilePath=${post.node.internal.contentFilePath}`,
         context: {
           id: post.node.id,
           previousPostId,

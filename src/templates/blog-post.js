@@ -5,11 +5,11 @@ import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 // import { Children } from "react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+// import { MDXRenderer } from "gatsby-plugin-mdx" // This no longer need in newer version
 import PostHeader from "../components/PostHeader"
 import { Wrapper } from "../components/Layout.style"
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data, location, children }) => {
   const post = data.mdx
   const image = post.frontmatter.image.childImageSharp.gatsbyImageData
   const aspectRatio = post.frontmatter.image.childImageSharp.resize.aspectRatio
@@ -34,7 +34,7 @@ const BlogPostTemplate = ({ data, location }) => {
           itemType="http://schema.org/Article"
         > */}
         <PostHeader post={post} image={image} aspectRatio={aspectRatio} />
-          <MDXRenderer>{post.body}</MDXRenderer>
+          {children}
           <hr />
           <footer>
             <Bio />
@@ -88,7 +88,6 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      body
       frontmatter {
         title
         category

@@ -28,10 +28,6 @@
           }
         },
         {
-          "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
-          "options": {}
-        },
-        {
           "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
           "options": {}
         },
@@ -71,10 +67,6 @@
           "options": {
             "cacheDir": "/Users/longluong/Web/luongkimlong/.cache/caches/gatsby-plugin-image"
           }
-        },
-        {
-          "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
-          "options": {}
         },
         {
           "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
@@ -133,10 +125,6 @@
           }
         },
         {
-          "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
-          "options": {}
-        },
-        {
           "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
           "options": {}
         },
@@ -193,10 +181,6 @@
           }
         },
         {
-          "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
-          "options": {}
-        },
-        {
           "name": "/Users/longluong/Web/luongkimlong/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
           "options": {}
         },
@@ -242,7 +226,7 @@
     }
   },
   "browserslist": [
-    ">0.25%",
-    "not dead"
+    ">0.25% and supports es6-module",
+    "not dead and supports es6-module"
   ]
 }
