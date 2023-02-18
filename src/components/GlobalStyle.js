@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components"
-import breakpoint from "./utils/breakpoint"
+import { createGlobalStyle } from "styled-components";
+import breakpoint from "./utils/breakpoint";
 
 const GlobalStyle = createGlobalStyle`
     :root{
@@ -137,14 +137,14 @@ const GlobalStyle = createGlobalStyle`
     }
 
     blockquote{
-        background: #f9f9f9;
-        border-left: 10px solid #ccc;
+        /* background: #f9f9f9; */
+        border-left: 0.5rem solid var(--colorFooterBackground);
         margin: 1.5em 10px;
         padding: 0.5em 10px;
     }
 
     blockquote:before {
-      color: #ccc;
+      color: var(--colorFooterBackground);
       content: open-quote;
       font-size: 4em;
       line-height: 0.1em;
@@ -152,25 +152,84 @@ const GlobalStyle = createGlobalStyle`
       vertical-align: -0.4em;
     }
 
+    blockquote:after {
+      content: no-close-quote;
+    }
+
     blockquote p {
       display: inline;
     }
 
-    .grvsc-container:after {
+    /* CSS for Code block Begin */
+
+    :not(pre) > code[class*="language-"], pre[class*="language-"] {
+      border-radius: var(--borderRadius);
+    }
+
+    /* CSS for highlighted code */
+    .gatsby-highlight-code-line { 
+      background-color: #535353;
+      display: block;
+      margin-right: -1em;
+      margin-left: -0.75em;
+      padding-right: 1em;
+      padding-left: 0.75em;
+      border-left: 0.25em solid var(--colorCodeLanguage);
+    }
+
+    /**
+    * Add back the container background-color, border-radius, padding, margin
+    * and overflow that we removed from <pre>.
+    */
+    .gatsby-highlight {
+      background-color: #2d2d2d; // prism-tomorrow theme
+      border-radius: 0.3em;
+      margin: 0.5em 0;
+      padding: 1em;
+      overflow: auto;
+    }
+
+    /**
+    * Remove the default PrismJS theme background-color, border-radius, margin,
+    * padding and overflow.
+    * 1. Make the element just wide enough to fit its content.
+    * 2. Always fill the visible space in .gatsby-highlight.
+    * 3. Adjust the position of the line numbers
+    */
+    .gatsby-highlight pre[class*="language-"] {
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      overflow: initial;
+      float: left; /* 1 */
+      min-width: 100%; /* 2 */
+    }
+
+    /* Adjust the position of the line numbers */
+    .gatsby-highlight pre[class*="language-"].line-numbers {
+      padding-left: 2.8em;
+    }
+
+    .gatsby-highlight {
+      position: relative;
+    }
+
+    .gatsby-highlight:before {
+      z-index: 1;
       content: attr(data-language);
       background: var(--colorCodeLanguage);
       border-radius: 0px 0px 4px 4px;
-      font-size: 0.75rem;
+      font-size: 0.6rem;
       font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-weight: 400;
       letter-spacing: 0.075em;
       line-height: 1;
       padding: 0.25rem 0.5rem;
       position: absolute;
-      left: 1.5rem;
+      right: 1.5rem;
       text-align: right;
       text-transform: uppercase;
-      top: 0px;
+      top: 0rem;
       /* position: absolute;
       right: 22px;
       top: 17px;
@@ -178,6 +237,8 @@ const GlobalStyle = createGlobalStyle`
       font-family: var(--font-monospace);
       font-style: italic; */
     }
+
+    /* End CSS for Code block */
 
     .BackgroundImg {
     height: 40vh;
@@ -285,5 +346,9 @@ const GlobalStyle = createGlobalStyle`
       background-color: black;
     }
   }
-`
-export default GlobalStyle
+
+  iframe {
+    margin: 2rem auto;
+  }
+`;
+export default GlobalStyle;

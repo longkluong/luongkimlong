@@ -5,14 +5,18 @@ import Layout from "../components/Layout"
 import BlogCard from "../components/BlogCard"
 import CardLoop from "../components/CardLoop"
 import Pagination from "../components/Pagination"
-import Seo from "../components/Seo"
 import ArchiveSection from "../components/ArchiveSection"
+
+export function Head({pageContext}) {
+  return (
+    <title>{pageContext.tag}</title>
+  )
+}
 
 const BlogTag = ({ data, pageContext, location }) => {
   const { allMdx } = data
   return (
     <Layout location={location}>
-      <Seo title={pageContext.tag} />
       <ArchiveSection
         title={kebabCase(pageContext.tag)}
         seeMore={pageContext.allTags.map(tag => (
@@ -53,8 +57,8 @@ export default BlogTag
 export const query = graphql`
   query blogPostsListByTag($tag: String, $skip: Int!, $limit: Int!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] }, draft: { eq: false } } }
+      sort: {frontmatter: {date: DESC}}
+      filter: {frontmatter: {tags: {in: [$tag]}, draft: {eq: false}}}
       limit: $limit
       skip: $skip
     ) {

@@ -36,6 +36,10 @@ export const PostHeaderWrapper = styled.div`
     text-shadow: 0.1em 0.1em 0.05em black;
     background-color: rgba(0,0,0,0.5);
 
+    img { // landscape header image should be squared
+      border-radius: 0px;
+    }
+
     .post-header-image {
       position: absolute;
       z-index: -2;

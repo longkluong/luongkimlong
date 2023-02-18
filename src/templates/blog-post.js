@@ -1,13 +1,19 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
-import Seo from "../components/Seo"
 // import { Children } from "react"
-// import { MDXRenderer } from "gatsby-plugin-mdx" // This no longer need in newer version
 import PostHeader from "../components/PostHeader"
 import { Wrapper } from "../components/Layout.style"
+
+export function Head({data}) {
+  return (
+    <>
+      <title>{data.mdx.frontmatter.title}</title>
+      <meta name="description" content={data.mdx.frontmatter.description}/>
+    </>
+  )
+}
 
 const BlogPostTemplate = ({ data, location, children }) => {
   const post = data.mdx
@@ -23,10 +29,10 @@ const BlogPostTemplate = ({ data, location, children }) => {
         title={siteTitle}
         image={image}
       >
-        <Seo
+        {/* <Seo
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
-        />
+        /> */}
         <Wrapper>
         {/* <article
           className="blog-post"

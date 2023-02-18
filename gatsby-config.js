@@ -37,18 +37,15 @@ module.exports = {
       options: {
         extensions: [`.md`, `.mdx`],
         gatsbyRemarkPlugins: [
+          `gatsby-remark-responsive-iframe`, // used to insert iframe like Youtube
+          `gatsby-remark-smartypants`, // used to change straight quote into curly quote
+          `gatsby-remark-copy-linked-files`, // used to copy linked file in markdown to public folder
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1600,
             },
           },
-          // {
-          //   resolve: `gatsby-remark-vscode`,
-          //   options: {
-          //     theme: 'Default Dark+', // Or install your favorite theme from GitHub
-          //   }
-          // },
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
@@ -91,7 +88,7 @@ module.exports = {
               // Defaults to false.
               // If you wish to only show line numbers on certain code blocks,
               // leave false and use the {numberLines: true} syntax below
-              showLineNumbers: true,
+              showLineNumbers: false,
               // If setting this to true, the parser won't handle and highlight inline
               // code used in markdown i.e. single backtick code like `this`.
               noInlineHighlight: false,
@@ -127,32 +124,15 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-katex`,
+            resolve: `gatsby-remark-katex`, // For Math display
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
               strict: `ignore`
             }
           },
         ],
-        // mdxOptions: {
-        //   remarkPlugins: [
-        //   //   require('remark-math'),
-        //     [require('gatsby-remark-vscode').remarkPlugin, {
-        //       theme: `Default Dark+`
-        //     }]
-        //   ],
-        //   // rehypePlugins: [
-        //   //   [require('rehype-katex'), { strict: 'ignore' }],
-        //   // ],
-        // },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -171,8 +151,6 @@ module.exports = {
         // excludePattern: /(excluded-link|external)/,
       },
     },
-    `gatsby-plugin-react-helmet`,
-    // `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,

@@ -3,16 +3,20 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import CardLoop from "../components/CardLoop"
 import BlogCard from "../components/BlogCard"
-import Seo from "../components/Seo"
 import Pagination from "../components/Pagination"
 import ArchiveSection from "../components/ArchiveSection"
+
+export function Head() {
+  return (
+    <title>Welcome to the blog of Lương Kim Long</title>
+  )
+}
 
 const BlogPostList = ({ data, pageContext, location }) => {
   const { allMdx } = data
   return (
     <>
       <Layout location={location}>
-        <Seo title="Welcome to the blog of Lương Kim Long" />
         <ArchiveSection title="Latest Posts" />
         <CardLoop>
           {allMdx.edges.map(({ node }) => {
@@ -45,8 +49,8 @@ export default BlogPostList
 export const query = graphql`
   query blogPostsList($skip: Int!, $limit: Int!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { featured: { eq: false }, draft: { eq: false } } }
+      sort: {frontmatter: {date: DESC}}
+      filter: {frontmatter: {featured: {eq: false}, draft: {eq: false}}}
       limit: $limit
       skip: $skip
     ) {

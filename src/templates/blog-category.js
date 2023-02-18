@@ -5,16 +5,18 @@ import Layout from "../components/Layout"
 import BlogCard from "../components/BlogCard"
 import CardLoop from "../components/CardLoop"
 import Pagination from "../components/Pagination"
-import Seo from "../components/Seo"
 import ArchiveSection from "../components/ArchiveSection"
+
+export function Head ({pageContext}) {
+  return (
+    <title>{pageContext.category}</title>
+  )
+}
 
 const BlogCategory = ({ data, pageContext, location }) => {
   const { allMdx } = data
   return (
     <Layout location={location}>
-      <Seo
-          title={pageContext.category}
-        />
       <ArchiveSection title={kebabCase(pageContext.category)} numPosts={pageContext.numPosts} seeMore={pageContext.allCategories.map(cat => (
          <Link key={cat} to={`/category/${kebabCase(cat)}`} className="tag">
            {cat}
@@ -47,10 +49,8 @@ export default BlogCategory
 export const query = graphql`
   query blogPostsListByCategory($category: String, $skip: Int!, $limit: Int!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { category: { in: [$category] }, draft: { eq: false } }
-      }
+      sort: {frontmatter: {date: DESC}}
+      filter: {frontmatter: {category: {in: [$category]}, draft: {eq: false}}}
       limit: $limit
       skip: $skip
     ) {

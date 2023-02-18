@@ -2,7 +2,9 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 import "katex/dist/katex.min.css"
-import "prismjs/themes/prism-solarizedlight.css"
+import "prismjs/themes/prism-tomorrow.css"
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+import "prismjs/plugins/diff-highlight/prism-diff-highlight.css"
 
 // // normalize CSS across browsers
 // import "./src/normalize.css"
