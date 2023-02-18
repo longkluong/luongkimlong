@@ -14,12 +14,29 @@ tags:
   - Just for fun
 ---
 
+# Test 1
+
 I want to write alot of things
 
-$a^2 + b^2 = c^2$
+This is a math equation $a^2 + b^2 = c^2$ isn't it?
 
+And this is a block of math
 $$
-a^2 + b = \sum\{x+y\}
+\frac{a}{b}
 $$
+
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        `gatsby-remark-prismjs`,
+      ]
+    }
+  }
+]
+```
 
 But who am I?
