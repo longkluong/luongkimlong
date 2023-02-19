@@ -48,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
         --fontWeightL: 600;
         --fontWeightXl: 800;
 
+        --rootFontSize: 16px;
         --fontSizeXs: 0.8rem;
         --fontSizeS: 1rem;
         --fontSizeM: 1.25rem;
@@ -73,6 +74,11 @@ const GlobalStyle = createGlobalStyle`
     img {
         border-radius: 10px;
     }
+
+    html {
+      font-size: var(--rootFontSize)
+    }
+
     body{
         background-color: var(--colorBackground);
         word-wrap: break-word;
@@ -82,7 +88,7 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
         font-family: Nunito, Tahoma, sans-serif;
-        font-size: 16px;
+        font-size: var(--rootFontSize);
     }
     body > div:first-of-type{
         overflow-x: hidden;
@@ -187,6 +193,9 @@ const GlobalStyle = createGlobalStyle`
       margin: 0.5em 0;
       padding: 1em;
       overflow: auto;
+      font-size: 1rem;
+      -webkit-text-size-adjust: 100% !important; 
+      /*text-size-adjust: none; */
     }
 
     /**
@@ -230,12 +239,6 @@ const GlobalStyle = createGlobalStyle`
       text-align: right;
       text-transform: uppercase;
       top: 0rem;
-      /* position: absolute;
-      right: 22px;
-      top: 17px;
-      font-size: .85rem;
-      font-family: var(--font-monospace);
-      font-style: italic; */
     }
 
     /* End CSS for Code block */
@@ -347,8 +350,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  iframe {
+  iframe[src*=youtube] {
     margin: 2rem auto;
-  }
-`;
+    display: block;
+    max-width: 100%;
+  }`
+;
 export default GlobalStyle;

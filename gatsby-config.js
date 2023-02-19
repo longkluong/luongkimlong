@@ -15,8 +15,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`, // gatsby-transformer-sharp and gatsby-plugin-sharp need to be together
+    `gatsby-plugin-image`, // For displaying Static and Dynamic responsive images
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -127,8 +127,8 @@ module.exports = {
             resolve: `gatsby-remark-katex`, // For Math display
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: `ignore`
-            }
+              strict: `ignore`,
+            },
           },
         ],
       },
@@ -155,4 +155,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   ],
-}
+};
