@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     img {
-        border-radius: 10px;
+        border-radius: var(--borderRadius);
     }
 
     html {
@@ -207,7 +207,7 @@ const GlobalStyle = createGlobalStyle`
     */
     .gatsby-highlight pre[class*="language-"] {
       background-color: transparent;
-      margin: 0;
+      margin: 0.5em 0 0 0;
       padding: 0;
       overflow: initial;
       float: left; /* 1 */
@@ -235,7 +235,7 @@ const GlobalStyle = createGlobalStyle`
       line-height: 1;
       padding: 0.25rem 0.5rem;
       position: absolute;
-      right: 1.5rem;
+      left: 2.8rem;
       text-align: right;
       text-transform: uppercase;
       top: 0rem;
@@ -354,6 +354,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 2rem auto;
     display: block;
     max-width: 100%;
+    border-radius: var(--borderRadius)
   }`
 ;
 export default GlobalStyle;

@@ -1,10 +1,55 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { Global, Wrapper, Logo, Hamburger, Menu, Overlay } from "./Navbar.style"
-import { MenuItems } from "./MenuItems"
+import kebabCase from "lodash.kebabcase"
 
 const Navbar = () => {
   const [nav, showNav] = useState(false)
+
+  const data = useStaticQuery(graphql`
+    query Category {
+      allMdx(
+          sort: {frontmatter: {date: DESC}}
+          filter: {frontmatter: {draft: {eq: false}}}
+        ) {
+          edges {
+              node {
+                  frontmatter {
+                      category
+                  }
+              }
+          }        
+      }
+    }
+  `)
+
+  const categories = []
+
+  data.allMdx.edges.forEach((post, index) => {
+    post.node.frontmatter.category.forEach(cat => categories.push(cat))
+  })
+  
+  const countCategories = categories.reduce((prev, curr) => {
+    prev[curr] = (prev[curr] || 0) + 1
+    return prev
+  }, {})
+
+  const allCategories = Object.keys(countCategories)
+
+  allCategories.sort()
+
+  const menuItems = [{
+            text: "Home",
+            url: "/",
+        },
+      ]
+
+  const newItems = allCategories.map(cat => {
+    return {text: cat, url: `/category/${kebabCase(cat)}`}
+  })
+
+  menuItems.push(...newItems)
+
   return (
     // <Wrapper>
     //   <Navbar>
@@ -42,7 +87,7 @@ const Navbar = () => {
           <span></span>
         </Hamburger>
         <Menu nav={nav}>
-          {MenuItems.map((item, index) => {
+          {menuItems.map((item, index) => {
             return (
               <Link
                 key={index}
@@ -55,6 +100,20 @@ const Navbar = () => {
               </Link>
             )
           })}
+          {/* {menuItems.map((item) => {
+            return (
+              <Link
+                key={`${kebabCase(item)}`}
+                to={`/category/${kebabCase(item)}`}
+                onClick={() => {
+                  showNav(false)
+                }}
+              >
+                {item}
+              </Link>
+            )
+          })} */}
+          {/* {menuItems} */}
         </Menu>
       </Wrapper>
     </>
