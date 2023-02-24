@@ -37,6 +37,10 @@ const GlobalStyle = createGlobalStyle`
         --colorFooterBackground: #000033;
         --colorCodeLanguage: orange;
 
+        --colorLink: orange;
+        --colorLinkHover: orange;
+        --colorLinkVisited: darkorange;
+
         --navOpacity: 0.8;
 
         --oppacityMedium: 0.8;
@@ -76,7 +80,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html {
-      font-size: var(--rootFontSize)
+      font-size: var(--rootFontSize);
+      scroll-padding-top: var(--navHeight);
     }
 
     body{
@@ -140,6 +145,15 @@ const GlobalStyle = createGlobalStyle`
 
     li{
         margin-bottom: 1rem;
+    }
+
+    li > ul {
+      margin-left: 2em;
+    }
+
+    a {
+      color: var(--colorLink);
+      font-weight: var(--fontWeightXl);
     }
 
     blockquote{
@@ -230,7 +244,7 @@ const GlobalStyle = createGlobalStyle`
       border-radius: 0px 0px 4px 4px;
       font-size: 0.6rem;
       font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-weight: 400;
+      font-weight: var(--fontWeightS);
       letter-spacing: 0.075em;
       line-height: 1;
       padding: 0.25rem 0.5rem;
@@ -302,7 +316,7 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     white-space: nowrap;
     font-size: var(--fontSizeM);
-    font-weight: 500;
+    font-weight: var(--fontWeightM);
     font-family: Rubik, Arial, sans-serif;
     transition: transform 200ms ease-in-out;
     text-transform: uppercase;

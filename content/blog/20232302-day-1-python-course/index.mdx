@@ -1,0 +1,262 @@
+---
+title: Day 1 - Basic Python for Econometrics
+date: 2023-02-23
+description: Python Course for Econometrics - Day 1 - Introduction to Python Programming
+author: Long Luong
+featured: false
+draft: false
+image: "./business.jpg"
+category:
+  - Tutorial
+tags:
+  - Finance
+  - Python
+  - Data
+  - Econometrics
+---
+
+Hello there 
+
+
+
+Please visit the [Sylabus](./../20232302-python-course) for the overview of the contents.
+
+
+```toc
+# This code block gets replaced with the TOC
+exclude:
+tight: false
+ordered: true
+from-heading: 2
+to-heading: 3
+class-name: "hehee"
+```
+
+# Day 1 Introduction to Python Programming
+
+### Content:
+- Overview of Python programming language
+- Installation and setup
+- Basic syntax and data types
+- [Quizz](#quiz)
+
+### Quiz:
+
+1. What is Python?
+Python is a high-level, interpreted programming language.
+
+1. What are some advantages of using Python?
+Python is a high-level, interpreted language, which means it is easy to learn and use. It has a simple and easy-to-understand syntax that allows developers to write code quickly and efficiently. Additionally, Python has a vast library of pre-built modules and packages, which can save time and effort when building complex applications.
+
+1. What is the difference between a string and an integer in Python?
+In Python, a string is a sequence of characters enclosed in single quotes, double quotes, or triple quotes, while an integer is a whole number without a decimal point. The main difference is that strings are used to represent textual data, while integers are used to represent numerical data.
+
+1. What is the purpose of indentation in Python?
+Indentation is used in Python to define the block of code that belongs to a particular function, loop, or conditional statement. Unlike other programming languages, Python does not use braces to delimit blocks of code. Instead, Python uses indentation to indicate the level of nesting of the code.
+
+1. What is a variable in Python?
+A variable is a container that holds a value, which can be of various data types such as numbers, strings, or Boolean values.
+
+1. What is the purpose of input() function in Python?
+The input() function is used to accept user input from the keyboard.
+
+1. What is the output of the following code?
+```python
+x = 5
+y = 3
+print(x + y)
+```
+Answer: 8
+
+### Exercise 1: Write a program that asks the user for their name and then prints a greeting.
+```python
+What is your name? John
+Hello, John!
+```
+
+Answer:
+```python
+name = input("What is your name? ")
+print("Hello, " + name + "!")
+```
+
+### Exercise 2: Write a program that asks the user for two numbers and then prints their sum.
+```python
+Enter the first number: 10
+Enter the second number: 5
+The sum is 15.
+```
+
+Answer:
+```python
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+sum = num1 + num2
+print("The sum is " + str(sum) + ".")
+```
+
+### Exercise 3: Write a program that asks the user for their age and then calculates how many years until they turn 100.
+```python
+How old are you? 25
+You will turn 100 in 75 years.
+```
+
+Answer:
+```python
+age = int(input("How old are you? "))
+years_until_100 = 100 - age
+print("You will turn 100 in " + str(years_until_100) + " years.")
+```
+
+```python
+```
+
+```python
+```
+
+### Exercise 4: Create a Python program that asks the user to enter their name and age, and then prints out a message that says "Hello, [name]. You are [age] years old."
+Answer:
+```Python
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+print(f"Hello, {name}. You are {age} years old.")
+```
+
+
+
+
+Day 2: Control Structures and Functions
+Quiz:
+
+What is a conditional statement in Python?
+What is a loop in Python?
+What is the difference between a while loop and a for loop in Python?
+What is a function in Python?
+What is the purpose of the return statement in a function?
+Exercise:
+Create a Python function that takes a list of numbers as input and returns the sum of those numbers.
+```Python
+def sum_numbers(numbers):
+    total = 0
+    for number in numbers:
+        total += number
+    return total
+```
+
+Day 3: Data Structures in Python
+Quiz:
+
+What is a list in Python?
+What is a tuple in Python?
+What is a dictionary in Python?
+How do you access a specific element in a list?
+How do you add a new element to a dictionary?
+Exercise:
+Create a Python program that asks the user to enter three numbers, stores them in a list, and then prints out the sum of those numbers.
+```Python
+
+```
+
+Day 4: Introduction to Pandas
+Quiz:
+
+What is Pandas?
+What are some advantages of using Pandas?
+What is a data frame in Pandas?
+How do you load data into a Pandas data frame?
+What is the difference between a series and a data frame in Pandas?
+Exercise:
+Load a CSV file into a Pandas data frame and print out the first five rows of the data frame.
+```Python
+import pandas as pd
+
+data = pd.read_csv("filename.csv")
+print(data.head())
+```
+
+Day 5: Data Manipulation with Pandas
+Quiz:
+
+What is indexing in Pandas?
+How do you filter data in a Pandas data frame?
+What is aggregation in Pandas?
+How do you calculate the mean of a column in a Pandas data frame?
+How do you sort a Pandas data frame by a specific column?
+Exercise:
+Load a CSV file into a Pandas data frame, filter the data to include only rows where a specific column is greater than a certain value, and then calculate the mean of another column.
+```Python
+import pandas as pd
+
+data = pd.read_csv("filename.csv")
+filtered_data = data[data["column_name"] > value]
+mean = filtered_data["another_column"].mean()
+print(mean)
+```
+
+Day 6: Data Analysis with Pandas
+Quiz:
+
+What are descriptive statistics?
+What is a groupby operation in Pandas?
+How do you create a pivot table in Pandas?
+What is the purpose of a pivot table in data analysis?
+How do you calculate the correlation between two columns in a Pandas data frame?
+Exercise:
+Load a CSV file into a Pandas data frame, group the data by a specific column, create a pivot table, and then calculate the correlation between two columns.
+```Python
+import pandas as pd
+
+data = pd.read_csv("filename.csv")
+grouped_data = data.groupby("column_name")
+pivot_table = pd.pivot_table(grouped_data, values="column_to_summarize", index="row_to_group_by", columns="column_to_create_columns", aggfunc="mean")
+correlation = pivot_table["column_name_1"].corr(pivot_table["column_name_2"])
+print(correlation)
+```
+
+Day 7: Linear Regression with Python
+Quiz:
+
+What is OLS regression?
+What is the purpose of OLS regression in data analysis?
+How do you prepare data for regression analysis in Python?
+What is the difference between a dependent variable and an independent variable in regression analysis?
+What is the purpose of the intercept term in a regression model?
+Exercise:
+Load a CSV file into a Pandas data frame, prepare the data for regression analysis, run an OLS regression model, and then print out the regression results.
+```Python
+import pandas as pd
+import statsmodels.api as sm
+
+data = pd.read_csv("filename.csv")
+x = data["independent_variable"]
+y = data["dependent_variable"]
+x = sm.add_constant(x)
+model = sm.OLS(y, x).fit()
+print(model.summary())
+```
+
+Day 8: Data Visualization with Python
+Quiz:
+
+What is data visualization?
+What are some advantages of using data visualization in data analysis?
+What is a scatter plot?
+What is a line plot?
+What is a bar chart?
+Exercise:
+Load a CSV file into a Pandas data frame, prepare the data for visualization, create a scatter plot and a line plot, and then save the plots as image files.
+```Python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("filename.csv")
+x = data["x_variable"]
+y = data["y_variable"]
+plt.scatter(x, y)
+plt.savefig("scatter_plot.png")
+
+plt.clf()
+
+plt.plot(x, y)
+plt.savefig("line_plot.png")
+```

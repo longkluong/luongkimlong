@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 
   // Create Blog-list page
-  const postsPerPage = 3
+  const postsPerPage = 10
 
   // Calculate number of pages needed
   const numPages = Math.ceil(nonFeaturedPosts.length / postsPerPage)
