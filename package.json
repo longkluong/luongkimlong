@@ -29,7 +29,7 @@
     "gatsby-remark-prismjs": "^7.6.0",
     "gatsby-remark-responsive-iframe": "^6.6.0",
     "gatsby-remark-smartypants": "^6.6.0",
-    "gatsby-remark-table-of-contents": "^2.0.0",
+    "gatsby-remark-table-of-contents-patch": "^2.0.0",
     "gatsby-source-filesystem": "^5.6.0",
     "gatsby-transformer-sharp": "^5.6.0",
     "katex": "^0.16.4",

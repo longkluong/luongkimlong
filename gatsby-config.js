@@ -59,7 +59,7 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-table-of-contents`,
+            resolve: `gatsby-remark-table-of-contents-patch`,
             options: {
               exclude: "Table of Contents",
               tight: false,
