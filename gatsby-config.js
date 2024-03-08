@@ -58,17 +58,17 @@ module.exports = {
               elements: [`h1`, `h2`, `h3`, `h4`],
             },
           },
-          {
-            resolve: `gatsby-remark-table-of-contents-patch`,
-            options: {
-              exclude: "Table of Contents",
-              tight: false,
-              ordered: false,
-              fromHeading: 1,
-              toHeading: 6,
-              // className: "table-of-contents",
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-table-of-contents-patch`,
+          //   options: {
+          //     exclude: "Table of Contents",
+          //     tight: false,
+          //     ordered: false,
+          //     fromHeading: 1,
+          //     toHeading: 6,
+          //     // className: "table-of-contents",
+          //   },
+          // },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

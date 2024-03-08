@@ -96,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: var(--rootFontSize);
     }
     body > div:first-of-type{
-        overflow-x: hidden;
+        /* overflow-x: hidden; */ // Remove this because of sticky TOC, but don't know if there will be breaks anywhere
         position: relative;
         min-height: 100vh;
     }

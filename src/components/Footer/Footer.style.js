@@ -6,6 +6,7 @@ export const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-column: 1/3;
 `
 
 export const Content = styled.div`

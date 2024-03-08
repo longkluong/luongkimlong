@@ -4,7 +4,8 @@ import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 // import { Children } from "react"
 import PostHeader from "../components/PostHeader"
-import { Wrapper } from "../components/Layout.style"
+import { Article, Wrapper } from "../components/Layout.style"
+import TableOfContents from "../components/TableOfContents"
 
 export function Head({data}) {
   return (
@@ -33,18 +34,21 @@ const BlogPostTemplate = ({ data, location, children }) => {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         /> */}
+        <PostHeader post={post} image={image} aspectRatio={aspectRatio} />
         <Wrapper>
         {/* <article
           className="blog-post"
           itemScope
           itemType="http://schema.org/Article"
         > */}
-        <PostHeader post={post} image={image} aspectRatio={aspectRatio} />
+        {/* Check if there are items in TOC */}
+          {post?.tableOfContents?.items && (
+            <TableOfContents items={post.tableOfContents.items} />
+          )}
+          <Article>
           {children}
-          <hr />
-          <footer>
-            <Bio />
-          </footer>
+          <Bio />
+          </Article>
         {/* </article> */}
         </Wrapper>
         <nav className="blog-post-nav">
@@ -94,6 +98,7 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
+      tableOfContents
       frontmatter {
         title
         category
