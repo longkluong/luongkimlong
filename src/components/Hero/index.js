@@ -14,7 +14,7 @@ const Hero = () => {
         //   // maxHeight: 600,
         // }}
         layout="fullWidth"
-        aspectRatio={3 / 1}
+        aspectRatio={5 / 2}
         alt=""
         src="../../images/hero-image.png"
         formats={["auto", "webp", "avif"]}
