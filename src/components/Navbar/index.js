@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { Global, Wrapper, Logo, Hamburger, Menu, Overlay } from "./Navbar.style"
+import { StaticImage } from "gatsby-plugin-image"
 import kebabCase from "lodash.kebabcase"
 
 const Navbar = () => {
@@ -74,7 +75,7 @@ const Navbar = () => {
       <Wrapper nav={nav}>
         <Global nav={nav} />
         <Logo>
-          <Link to="/">Long's</Link>
+          <Link to="/"><StaticImage width={100} src="../../images/longluong-icon.png"/></Link>
         </Logo>
         <Hamburger
           nav={nav}

@@ -69,6 +69,10 @@ export const Logo = styled.div`
     line-height: var(--logoLineHeight);
     font-weight: var(--fontWeightBold);
     color: var(--colorNavLogo);
+    width: 40px;
+    ${breakpoint.md} {
+      width: 60px;
+    }
   }
 `
 
