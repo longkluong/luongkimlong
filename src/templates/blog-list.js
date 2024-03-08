@@ -5,6 +5,7 @@ import CardLoop from "../components/CardLoop"
 import BlogCard from "../components/BlogCard"
 import Pagination from "../components/Pagination"
 import ArchiveSection from "../components/ArchiveSection"
+import Hero from "../components/Hero"
 
 export function Head() {
   return (
@@ -17,6 +18,7 @@ const BlogPostList = ({ data, pageContext, location }) => {
   return (
     <>
       <Layout location={location}>
+        <Hero />
         <ArchiveSection title="Latest Posts" />
         <CardLoop>
           {allMdx.edges.map(({ node }) => {
