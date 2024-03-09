@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 
   p{
     color: white;
-    text-shadow: black 1px 0 10px;
+    text-shadow: black 1px 0 0.5rem;
   }
 `
 
@@ -39,18 +39,33 @@ export const HeroText = styled.div`
 
 export const Title = styled.h2`
   color: white;
-  text-shadow: var(--colorPrimary) 1px 0 10px;
+  /* text-shadow: var(--colorPrimary) 1px 0 3px; */
   font-size: 3rem;
   ${breakpoint.md} {
     font-size: 5rem;
+    /* text-shadow: var(--colorPrimary) 1px 0 5px; */
+  }
+
+  span {
+    text-shadow: var(--colorPrimary) 1px 0 3px;
+    ${breakpoint.md} {
+      text-shadow: var(--colorPrimary) 1px 0 5px;
+    }
   }
 `
 
 export const SubTittle = styled.h3`
   color: white;
   font-size: 2rem;
-  text-shadow: var(--colorPrimary) 1px 0 10px;
   ${breakpoint.md} {
     font-size: 3rem;
   }
+
+  span {
+    text-shadow: var(--colorPrimary) 1px 0 2px;
+    ${breakpoint.md} {
+      text-shadow: var(--colorPrimary) 1px 0 3px;
+    }
+  }
+
 `
