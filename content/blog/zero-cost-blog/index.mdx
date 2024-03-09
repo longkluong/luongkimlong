@@ -1,0 +1,110 @@
+---
+title: This blog costs me $0.00
+date: 2024-03-09
+description: In this blog, I will document how I built this blog.
+author: Long Luong
+featured: false
+draft: false
+image: "../../../src/images/cover.jpeg"
+category:
+  - Tech
+tags:
+  - Blog
+  - DIY
+  - Coding
+  - Budget
+---
+
+# I used to use self-host a WordPress site
+
+I've been coding toy projects since I was 12 years old. At that time, I was fascinated by the idea of a website, where I could write something and share it with the world. 
+
+Fast forward to 2020, I decided to build my blog, with the hope of earning some money with affiliate marketing LOL. I bought several "catchy" domain names and started to build my blog with WordPress hosted on Bluehost. I even bought a pro version of Divi Theme Builder to help me with designing the UI. The problem is that I don't have any content ideas, and the cheap hosting is, honestly, slow! Mission failed.
+
+Three years later, the hosting plan expired. I kept only the domain with my name (luongkimlong.com) and decided to build a new blog, that should be fast, using state-of-the-art technology and most importantly, free to host.
+
+I did my research and found out that for a personal website, the best way to make it fast and easy to host is to use a static site generator. I chose Gatsby because it's fast, open-source and based on React, which is backed by Facebook.
+
+With a little help from GitHub Copilot, I built the first version of my website in a week. The writing experience is very simple. I compose something in MDX, push it to GitHub, and Netlify will automatically build and deploy the website.
+
+I will break down my thought process and the steps I took to build this blog, as a way to remember my journey. Because one day, I might want to alter something, and my future self will thank me LOL.
+
+# My new blog requirements
+## Fast and responsive UI
+
+I love to design my UI. I'm not a developer or a designer, but I enjoy playing with CSS and JS. Therefore, when I read the logic behind React's components, I immediately knew this was the right tool for me. I want my website to be responsive and display beautifully on all devices. Gatsby provides several prebuilt plugins to help me with that.
+
+You can see that I hand-picked the background color, font family and font size based on scientific research (but I forgot which research I read, I should cite them later). The width of the content is also exactly the width that people's eyes can comfortably skim through. The background color is also carefully chosen to be easy on the eyes.
+
+## Beautiful maths, code and images 
+
+When I used WordPress, there were many plugins to help us with setting up the site. However, they're either not free or not easy to use. In Gatsby, I can use `MDX` to write my blog, `KaTeX` to write beautiful math, and `Prism` to highlight my code. I can also use `gatsby-image` to optimize my images. It all works together seamlessly.
+
+## Easy to host
+
+Gatsby is a static site generator, which means it pre-generates a bunch of HTML, CSS and JS files on the server. When you visit my website, the server can just serve the pre-generated content to you. This is very fast and cheap to host as compared to WordPress, where each time you visit, the server has to generate the content on the fly.
+
+# Technical details 
+
+I might have to rewrite this part later. Right now, I just document what I think is important to me so that I can remember what to do when I want to change something.
+
+## Gatsby
+
+In my source code, `gatsby-config.js` has all site settings. 
+
+My project is working better with `yarn`. Some useful commands when developing:
+
+```bash
+yarn install # install all dependencies
+yarn clean # clean the cache
+yarn develop # start the development server
+```
+
+That's enough to get the project running on my local server. 
+
+## MDX 
+
+The content is written in MDX format, and stored in `content\blog` folder. 
+
+MDX file has to have a frontmatter, which is a block of YAML at the top of the file. It contains metadata about the post, such as title, date, description, author, etc.
+
+```mdx
+---
+title:
+date: yyyy-mm-dd
+description: 
+author:
+featured: false
+draft: false
+image: "../../../src/images/image.jpeg"
+category:
+  - cat1
+  - cat2
+tags:
+  - tag1
+  - tag2
+---
+```
+
+Then I can write whatever I want after the front matter. 
+
+## GitHub 
+
+The source code is stored on https://github.com/longkluong/luongkimlong. Useful commands I often use are:
+
+```bash
+git add . 
+git commit -m "commit message" 
+git push
+```
+
+The problem is that I'm not a developer and usually work alone, so I don't commit often. I should change that habit.
+
+## Netlify 
+
+I forgot how I set up Netlify. I just remembered that I linked my GitHub repository to Netlify, and it automatically builds and deploys my website whenever I push something to GitHub.
+
+# Remarks
+
+I'm happy with what I got right now. My blog code needs to be cleaned up a little bit. Right now the `components` folder is quite messy. I also want to look into some static assets hosting options. Right now I host my images on GitHub, which is not a good practice.
+
